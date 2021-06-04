@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+  ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_5_11;
@@ -89,6 +95,7 @@
     slack
     discord
     gnome3.gnome-tweaks
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
