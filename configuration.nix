@@ -82,6 +82,9 @@
     shell = pkgs.zsh;
   };
 
+  nix.allowedUsers = [ "@wheel" ];
+  nix.trustedUsers = [ "yoeight" ];
+
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
@@ -91,11 +94,11 @@
     wget
     brave
     git
-    zsh
     slack
     discord
     gnome3.gnome-tweaks
     neovim
+    zsh-prezto
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -105,6 +108,8 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
 
