@@ -98,7 +98,6 @@
     discord
     gnome3.gnome-tweaks
     neovim
-    zsh-prezto
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -109,7 +108,10 @@
     enableSSHSupport = true;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    promptInit = "";
+  };
 
   # List services that you want to enable:
 
